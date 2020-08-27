@@ -26,10 +26,9 @@ def allen_break_json() -> bool:
     data_dir = Path(os.getenv("DATA_DIR"))
     oos_data_dir = data_dir/"oos-eval/data/"
     files = next(os.walk(oos_data_dir))[2]
-    data = {}
     print(f"Loading files: {files!r}")
 
-    paths = {f[:f.find('.')]:oos_data_dir/f for f in files}
+    paths = {f[:f.find('.')]: oos_data_dir/f for f in files}
 
     print(paths)
 
@@ -63,7 +62,6 @@ def allen_break_json() -> bool:
             json_write(train_data, filen + "_train.json")
             json_write(val_data, filen + "_val.json")
             json_write(test_data, filen + "_test.json")
-
 
     return True
 
